@@ -1,0 +1,37 @@
+{
+  "entities": {
+    "Note": {
+      "title": "Note",
+      "description": "A notebook entry",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "userId": { "type": "string" }
+      },
+      "required": ["id", "title", "content", "createdAt", "updatedAt", "userId"]
+    },
+    "UserBackup": {
+      "title": "User Backup Metadata",
+      "description": "Metadata about the user's last backup",
+      "type": "object",
+      "properties": {
+        "lastBackupAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["lastBackupAt"]
+    }
+  },
+  "firestore": {
+    "/backups/{userId}": {
+      "schema": "UserBackup",
+      "description": "User specific backup metadata"
+    },
+    "/backups/{userId}/notes/{noteId}": {
+      "schema": "Note",
+      "description": "Collection of notes for a specific user"
+    }
+  }
+}

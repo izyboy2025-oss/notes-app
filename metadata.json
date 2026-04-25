@@ -1,0 +1,6 @@
+{
+  "name": "CloudNotes",
+  "description": "A fast, offline-first note-taking app with seamless Google account backup and restore functionality.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
